@@ -1,14 +1,9 @@
-<div class="page-header">
-               <h1><a href="/">Pinturas</a></h1>
+<{% extends 'pintura/base.html' %}
 
-               {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
- </div>
-
-{% block content %}
-{% endblock %}
+    {% block content %}
+        <h1>Nueva Pintura</h1>
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit" class="save btn btn-default">Guardar</button>
+        </form>
+    {% endblock %}
