@@ -16,9 +16,7 @@ class Pintor(models.Model):
 
 class Pintura(models.Model):
     nombre    = models.CharField(max_length=60)
-
     anio      = models.IntegerField()
-
     actores   = models.ManyToManyField(Pintor, through='Actuacion')
 
     def __str__(self):
